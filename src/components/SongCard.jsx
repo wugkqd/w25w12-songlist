@@ -1,17 +1,29 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default function SongCard({ song }) {
   return (
     <Link 
       to={`/song/${song.id}`} 
-      className="cursor-pointer bg-white shadow-md rounded-2xl p-4 flex flex-col items-center hover:scale-105 transition-transform">
-      <img 
-        src={`https://picsum.photos/128/128?random=${song.id}`} 
-        alt={`${song.title} 앨범 이미지`}
-        className="w-32 h-32 mb-2" 
-      />
-      <div className="text-lg font-bold">{song.title}</div>
-      <div className="text-gray-500">{song.singer}</div>
+      className="flex p-3 rounded-xl hover:bg-gray-200 transition duration-150 shadow-sm hover:shadow-md bg-white w-full"
+    >
+      
+      <div className="flex-shrink-0 mr-4">
+        <img 
+          src={`https://picsum.photos/192/192?random=${song.id}`} 
+          alt={`${song.title} 앨범 이미지`}
+          className="w-16 h-16 object-cover rounded-lg shadow-md" 
+        />
+      </div>
+      
+      <div className="flex-grow min-w-0">
+        <div className="text-lg font-semibold text-gray-800 truncate">
+          {song.title}
+        </div>
+        <div className="text-sm text-gray-500 truncate">
+          {song.singer}
+        </div>
+      </div>
+     
     </Link>
   )
 }
